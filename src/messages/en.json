@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Home",
+    "quiz": "Quiz",
+    "classement": "Leaderboard",
+    "programmes": "Programs",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Join the next generation of professionals",
+    "hero_subtitle": "Certified training in web development, accounting, digital marketing and more.",
+    "cta_register": "Pre-register for free",
+    "cta_quiz": "Test my knowledge",
+    "next_batch": "Next cohort:",
+    "students_trained": "Students trained",
+    "placement_rate": "Placement rate",
+    "partner_companies": "Partner companies"
+  },
+  "register": {
+    "title": "Free pre-registration",
+    "subtitle": "Express your interest — our team will contact you within 48h.",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "email": "Email",
+    "phone": "Phone",
+    "program": "Program of interest",
+    "program_placeholder": "Choose a program",
+    "country": "Country",
+    "city": "City",
+    "submit": "Submit my pre-registration",
+    "submitting": "Submitting...",
+    "success_title": "Pre-registration received!",
+    "success_message": "Our team will contact you within 48 hours. Share this portal with your friends!",
+    "error_generic": "An error occurred. Please try again.",
+    "error_duplicate": "A file with this email already exists for this campus.",
+    "consent": "By submitting this form, I agree that my data will be processed in accordance with the privacy policy.",
+    "required_fields": "* Required fields",
+    "partner_ref": "Referred by:"
+  },
+  "quiz": {
+    "title": "Test your knowledge",
+    "subtitle": "10 questions, 30 seconds per question. Share your score!",
+    "choose_category": "Choose a category",
+    "start": "Start the quiz",
+    "question_of": "Question {current} of {total}",
+    "time_left": "{seconds}s",
+    "score_title": "Your score",
+    "score_result": "{correct} correct answer(s) out of {total}",
+    "share_whatsapp": "Share on WhatsApp",
+    "play_again": "Play again",
+    "register_cta": "Pre-register",
+    "loading": "Loading questions...",
+    "submit_error": "Unable to submit. Please try again.",
+    "categories": {
+      "web": "Web Development",
+      "accounting": "Accounting",
+      "marketing": "Digital Marketing",
+      "general": "General knowledge"
+    }
+  },
+  "leaderboard": {
+    "title": "Monthly leaderboard",
+    "subtitle": "Top {limit} — renewed on the 1st of each month",
+    "rank": "Rank",
+    "name": "Participant",
+    "score": "Score",
+    "city": "City",
+    "period": "Period",
+    "empty": "No results this month. Be the first!",
+    "loading": "Loading leaderboard...",
+    "challenge": "Challenge a friend",
+    "scope_campus": "Campus",
+    "scope_national": "National"
+  },
+  "whatsapp": {
+    "quiz_share": "🎯 I scored {score}/100 on the {category} quiz! Can you do better? Click here: {url}",
+    "challenge": "🏆 I challenge you on the {category} quiz! Click here to play: {url}"
+  },
+  "footer": {
+    "tagline": "Training tomorrow's talent.",
+    "privacy": "Privacy policy",
+    "contact": "Contact",
+    "partner": "Become a partner"
+  },
+  "errors": {
+    "network": "Network error. Check your connection.",
+    "not_found": "Page not found.",
+    "campus_not_found": "Campus not found. Please check the link you used."
+  }
+}

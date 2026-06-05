@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "quiz": "Quiz",
+    "classement": "Classement",
+    "programmes": "Programmes",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Rejoignez la prochaine génération de professionnels",
+    "hero_subtitle": "Formations certifiantes en développement web, comptabilité, marketing digital et plus encore.",
+    "cta_register": "Se pré-inscrire gratuitement",
+    "cta_quiz": "Tester mes connaissances",
+    "next_batch": "Prochaine cohorte :",
+    "students_trained": "Apprenants formés",
+    "placement_rate": "Taux d'insertion",
+    "partner_companies": "Entreprises partenaires"
+  },
+  "register": {
+    "title": "Pré-inscription gratuite",
+    "subtitle": "Exprimez votre intérêt — notre équipe vous contacte sous 48h.",
+    "first_name": "Prénom",
+    "last_name": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "program": "Formation d'intérêt",
+    "program_placeholder": "Choisissez une formation",
+    "country": "Pays",
+    "city": "Ville",
+    "submit": "Envoyer ma pré-inscription",
+    "submitting": "Envoi en cours...",
+    "success_title": "Pré-inscription reçue !",
+    "success_message": "Notre équipe vous contactera sous 48 heures. Partagez ce portail avec vos amis !",
+    "error_generic": "Une erreur est survenue. Veuillez réessayer.",
+    "error_duplicate": "Un dossier avec cet email existe déjà pour ce campus.",
+    "consent": "En soumettant ce formulaire, j'accepte que mes données soient traitées conformément à la politique de confidentialité.",
+    "required_fields": "* Champs obligatoires",
+    "partner_ref": "Référencé par :"
+  },
+  "quiz": {
+    "title": "Testez vos connaissances",
+    "subtitle": "10 questions, 30 secondes par question. Partagez votre score !",
+    "choose_category": "Choisissez une catégorie",
+    "start": "Commencer le quiz",
+    "question_of": "Question {current} sur {total}",
+    "time_left": "{seconds}s",
+    "score_title": "Votre score",
+    "score_result": "{correct} bonne(s) réponse(s) sur {total}",
+    "share_whatsapp": "Partager sur WhatsApp",
+    "play_again": "Rejouer",
+    "register_cta": "Me pré-inscrire",
+    "loading": "Chargement des questions...",
+    "submit_error": "Impossible de soumettre. Réessayez.",
+    "categories": {
+      "web": "Développement Web",
+      "accounting": "Comptabilité",
+      "marketing": "Marketing Digital",
+      "general": "Culture générale"
+    }
+  },
+  "leaderboard": {
+    "title": "Classement du mois",
+    "subtitle": "Top {limit} — renouvelé chaque 1er du mois",
+    "rank": "Rang",
+    "name": "Participant",
+    "score": "Score",
+    "city": "Ville",
+    "period": "Période",
+    "empty": "Aucun résultat ce mois-ci. Soyez le premier !",
+    "loading": "Chargement du classement...",
+    "challenge": "Défier un ami",
+    "scope_campus": "Campus",
+    "scope_national": "National"
+  },
+  "whatsapp": {
+    "quiz_share": "🎯 J'ai obtenu {score}/100 au quiz {category} ! Peux-tu faire mieux ? Clique ici : {url}",
+    "challenge": "🏆 Je te défie sur le quiz {category} ! Clique ici pour jouer : {url}"
+  },
+  "footer": {
+    "tagline": "Former les talents de demain.",
+    "privacy": "Politique de confidentialité",
+    "contact": "Contact",
+    "partner": "Devenir partenaire"
+  },
+  "errors": {
+    "network": "Erreur réseau. Vérifiez votre connexion.",
+    "not_found": "Page introuvable.",
+    "campus_not_found": "Campus introuvable. Vérifiez le lien utilisé."
+  }
+}
