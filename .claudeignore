@@ -1,0 +1,34 @@
+# .claudeignore — paths Claude should not read/scan, to save tokens.
+# Build artifacts and dependencies carry no useful context (the source in src/ does).
+# Note: Claude Code already skips .gitignored paths during search; this file makes
+# the intent explicit and also lists generated/lock files worth ignoring.
+
+# Dependencies (728M)
+node_modules/
+.pnp
+.pnp.*
+.yarn/
+
+# Next.js build output (203M) + caches
+.next/
+out/
+build/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# Lockfile — large, machine-generated, rarely needed for reasoning
+package-lock.json
+
+# Testing / coverage
+coverage/
+
+# Logs & local secrets
+*.log
+.env*
+*.pem
+.DS_Store
+
+# Static scaffold assets — binary/boilerplate, no reasoning value
+public/*.svg
+*.ico
