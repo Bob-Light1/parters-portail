@@ -1,0 +1,188 @@
+{
+  "language": {
+    "switch": "Sprache ändern"
+  },
+  "nav": {
+    "home": "Startseite",
+    "quiz": "Quiz",
+    "leaderboard": "Rangliste",
+    "register_cta": "Vormerken",
+    "menu": "Menü",
+    "competition": "Wettbewerb",
+    "testimonials": "Erfahrungen",
+    "courses": "Kurse",
+    "faq": "FAQ"
+  },
+  "home": {
+    "hero_title": "Werden Sie Teil der nächsten Generation von Fachkräften",
+    "hero_subtitle": "Zertifizierte Ausbildungen in Webentwicklung, Buchhaltung, digitalem Marketing und mehr.",
+    "cta_register": "Kostenlos vormerken",
+    "cta_quiz": "Mein Wissen testen",
+    "next_batch": "Nächster Jahrgang:",
+    "students_trained": "Ausgebildete Lernende",
+    "placement_rate": "Vermittlungsquote",
+    "partner_companies": "Partnerunternehmen",
+    "quiz_section_title": "Testen Sie Ihr Wissen",
+    "quiz_section_subtitle": "Interaktives Quiz · Monatliche Rangliste · Belohnungen gewinnen",
+    "share_portal": "Auf WhatsApp teilen",
+    "share_portal_message": "🎓 Schau dir dieses Ausbildungsportal an! Mach mit: {url}"
+  },
+  "register": {
+    "title": "Kostenlose Vormerkung",
+    "subtitle": "Bekunden Sie Ihr Interesse — unser Team meldet sich innerhalb von 48 Stunden.",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "program": "Gewünschte Ausbildung",
+    "program_placeholder": "Wählen Sie eine Ausbildung",
+    "country": "Land",
+    "city": "Stadt",
+    "submit": "Vormerkung absenden",
+    "submitting": "Wird gesendet...",
+    "success_title": "Vormerkung erhalten!",
+    "success_message": "Unser Team wird Sie innerhalb von 48 Stunden kontaktieren. Teilen Sie dieses Portal mit Ihren Freunden!",
+    "success_share": "Auf WhatsApp teilen",
+    "success_share_message": "🎓 Ich habe mich gerade für eine berufliche Ausbildung vorgemerkt! Mach mit: {url}",
+    "error_generic": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "error_duplicate": "Für diese E-Mail besteht bereits ein Eintrag an diesem Campus.",
+    "consent": "Mit dem Absenden dieses Formulars stimme ich zu, dass meine Daten gemäß der Datenschutzrichtlinie verarbeitet werden.",
+    "required_fields": "* Pflichtfelder",
+    "partner_ref": "Empfohlen von:",
+    "ph_first_name": "z. B. Jean-Paul",
+    "ph_last_name": "z. B. Nguemo",
+    "ph_email": "z. B. jean.nguemo@gmail.com",
+    "ph_phone": "z. B. +237 6 12 34 56 78",
+    "ph_country": "z. B. Kamerun",
+    "ph_city": "z. B. Bafoussam",
+    "v_name_min": "Mindestens 2 Zeichen",
+    "v_email": "Ungültige E-Mail"
+  },
+  "quiz": {
+    "title": "Testen Sie Ihr Wissen",
+    "subtitle": "10 Fragen, 30 Sekunden pro Frage. Teilen Sie Ihr Ergebnis!",
+    "choose_category": "Wählen Sie eine Kategorie",
+    "start": "Quiz starten",
+    "question_of": "Frage {current} von {total}",
+    "time_left": "{seconds}s",
+    "next": "Weiter",
+    "finish": "Beenden",
+    "score_title": "Ihr Ergebnis",
+    "score_result": "{correct} richtige Antwort(en) von {total}",
+    "share_whatsapp": "Auf WhatsApp teilen",
+    "share_message": "🎯 Ich habe {score}/100 im {category}-Quiz erreicht! Schaffst du mehr? Klick hier: {url}",
+    "play_again": "Nochmal spielen",
+    "register_cta": "Vormerken",
+    "loading": "Fragen werden geladen...",
+    "submit_error": "Ihr Ergebnis konnte nicht gesendet werden. Bitte erneut versuchen.",
+    "no_questions": "Keine Fragen für diese Kategorie verfügbar.",
+    "campus_not_configured": "Campus nicht konfiguriert.",
+    "identify_title": "Erscheine in der Rangliste",
+    "identify_subtitle": "Füge einen Spitznamen hinzu, um in der Rangliste zu erscheinen. Leer lassen, um anonym zu bleiben.",
+    "display_name_label": "Spitzname",
+    "display_name_ph": "z. B. Awa M.",
+    "city_label": "Stadt",
+    "city_ph": "z. B. Douala",
+    "see_score": "Meine Punktzahl ansehen",
+    "categories": {
+      "web": "Webentwicklung",
+      "accounting": "Buchhaltung",
+      "marketing": "Digitales Marketing",
+      "general": "Allgemeinwissen"
+    }
+  },
+  "leaderboard": {
+    "title": "Monatliche Rangliste",
+    "subtitle": "Top 50 Campus · Top 20 national — erneuert am 1. jedes Monats",
+    "refreshed_every_minute": "Jede Minute aktualisiert",
+    "campus_leaderboard": "Campus-Top",
+    "national_leaderboard": "Nationale Top",
+    "unavailable": "Die Rangliste ist vorübergehend nicht verfügbar.",
+    "play_to_appear": "Spielen Sie das Quiz, um zu erscheinen",
+    "col_participant": "Teilnehmer",
+    "col_score": "Ergebnis",
+    "col_category": "Kategorie",
+    "empty": "Noch keine Ergebnisse."
+  },
+  "footer": {
+    "tagline": "Die Talente von morgen ausbilden.",
+    "privacy": "Datenschutzrichtlinie",
+    "contact": "Kontakt",
+    "partner": "Partner werden",
+    "faq": "FAQ",
+    "testimonials": "Erfahrungen"
+  },
+  "errors": {
+    "network": "Netzwerkfehler. Überprüfen Sie Ihre Verbindung.",
+    "not_found": "Seite nicht gefunden.",
+    "campus_not_found": "Campus nicht gefunden. Bitte überprüfen Sie den verwendeten Link."
+  },
+  "campus_select": {
+    "title": "Wählen Sie Ihren Campus",
+    "subtitle": "Wählen Sie den Campus in Ihrer Nähe, um zu beginnen.",
+    "empty": "Derzeit ist kein Campus verfügbar."
+  },
+  "privacy": {
+    "title": "Datenschutzrichtlinie",
+    "updated": "Zuletzt aktualisiert: Juni 2026",
+    "intro": "Ihre Daten werden gemäß dem kamerunischen Gesetz Nr. 2010/012 über Cybersicherheit und Cyberkriminalität sowie analog zur europäischen DSGVO geschützt.",
+    "data_title": "Daten, die wir erfassen",
+    "data_body": "Wenn Sie ein Formular ausfüllen, erfassen wir Ihren Vornamen, Nachnamen, Ihre E-Mail und optional Ihre Telefonnummer, Ihr Land, Ihre Stadt und die gewünschte Ausbildung.",
+    "use_title": "Verwendung Ihrer Daten",
+    "use_body": "Ihre Daten werden nur verwendet, um Ihre Vormerkung zu bearbeiten, Sie zu kontaktieren und Sie über unsere Ausbildungen zu informieren. Sie werden niemals verkauft.",
+    "ip_title": "IP-Adressen und Sicherheit",
+    "ip_body": "Ihre IP-Adresse wird niemals im Klartext gespeichert: Nur ihr SHA-256-Hash wird 90 Tage lang zum Schutz vor Spam und Betrug aufbewahrt.",
+    "rights_title": "Ihre Rechte",
+    "rights_body": "Sie können jederzeit über das Kontaktformular Zugang zu Ihren Daten, deren Berichtigung oder Löschung verlangen.",
+    "sharing_title": "Weitergabe von Daten",
+    "sharing_body": "Ihre Daten sind nur autorisierten Administratoren des betreffenden Campus zugänglich. Keine Weitergabe an unbefugte Dritte.",
+    "contact": "Um Ihre Rechte auszuüben, kontaktieren Sie uns über das Kontaktformular."
+  },
+  "testimonials": {
+    "title": "Erfolgsgeschichten",
+    "subtitle": "Die Wege unserer ehemaligen Lernenden",
+    "empty": "Noch keine Erfahrungsberichte.",
+    "promo": "Jahrgang {year}",
+    "cta": "Jetzt vormerken"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Alles, was Sie vor der Anmeldung wissen müssen",
+    "empty": "Noch keine Fragen."
+  },
+  "competition": {
+    "title": "Wettbewerb des Monats",
+    "subtitle": "Wettbewerb {period}",
+    "closes_in": "Endet in",
+    "days": "Tage",
+    "hours": "Std",
+    "minutes": "Min",
+    "seconds": "Sek",
+    "closed": "Der Wettbewerb ist beendet.",
+    "prizes_title": "Zu gewinnende Preise",
+    "winners_title": "Gewinner",
+    "no_competition": "Derzeit läuft kein Wettbewerb.",
+    "play_cta": "Quiz spielen",
+    "share_whatsapp": "Auf WhatsApp teilen",
+    "share_message": "🏆 Mach beim Quiz-Wettbewerb mit und gewinne Preise! Komm dazu: {url}",
+    "register_cta": "Vormerken"
+  },
+  "courses": {
+    "title": "Kursvorschau",
+    "subtitle": "Entdecken Sie kostenlos einen Auszug unserer Kurse",
+    "empty": "Noch keine Vorschau verfügbar.",
+    "watch_video": "Video ansehen",
+    "cta": "Für {program} vormerken"
+  },
+  "badge": {
+    "title": "Ihr Abzeichen",
+    "participant": "Teilnehmer",
+    "download": "Abzeichen herunterladen",
+    "share": "Teilen"
+  },
+  "challenge": {
+    "title": "Fordere deine Freunde heraus",
+    "subtitle": "Teile dein Ergebnis und fordere deine Freunde heraus!",
+    "share_whatsapp": "Auf WhatsApp herausfordern"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "language": {
+    "switch": "Linguam mutare"
+  },
+  "nav": {
+    "home": "Principium",
+    "quiz": "Quaestiones",
+    "leaderboard": "Ordo",
+    "register_cta": "Praescribere",
+    "menu": "Index",
+    "competition": "Certamen",
+    "testimonials": "Testimonia",
+    "courses": "Cursus",
+    "faq": "Quaestiones"
+  },
+  "home": {
+    "hero_title": "Adiunge te proximae generationi peritorum",
+    "hero_subtitle": "Institutiones testatae in evolutione interretiali, ratiocinio, mercatura digitali et pluribus.",
+    "cta_register": "Gratis praescribere",
+    "cta_quiz": "Scientiam meam probare",
+    "next_batch": "Proxima cohors:",
+    "students_trained": "Discipuli instituti",
+    "placement_rate": "Ratio collocationis",
+    "partner_companies": "Societates sociae",
+    "quiz_section_title": "Scientiam tuam proba",
+    "quiz_section_subtitle": "Quaestiones interactivae · Ordo menstruus · Praemia merere",
+    "share_portal": "Per WhatsApp communicare",
+    "share_portal_message": "🎓 Vide hoc portale institutionis! Adiunge te nobis hic: {url}"
+  },
+  "register": {
+    "title": "Praescriptio gratuita",
+    "subtitle": "Studium tuum declara — grex noster te intra 48 horas conveniet.",
+    "first_name": "Praenomen",
+    "last_name": "Nomen",
+    "email": "Cursus electronicus",
+    "phone": "Telephonum",
+    "program": "Institutio cupita",
+    "program_placeholder": "Institutionem elige",
+    "country": "Natio",
+    "city": "Urbs",
+    "submit": "Praescriptionem meam mittere",
+    "submitting": "Mittitur...",
+    "success_title": "Praescriptio accepta!",
+    "success_message": "Grex noster te intra 48 horas conveniet. Hoc portale cum amicis communica!",
+    "success_share": "Per WhatsApp communicare",
+    "success_share_message": "🎓 Modo me praescripsi ad institutionem professionalem! Adiunge te mihi: {url}",
+    "error_generic": "Error accidit. Quaeso iterum conare.",
+    "error_duplicate": "Tabula cum hoc cursu electronico iam exsistit pro hoc campo.",
+    "consent": "Hanc formulam mittens, consentio data mea tractari secundum rationem privatae vitae tuendae.",
+    "required_fields": "* Campi necessarii",
+    "partner_ref": "Commendatus a:",
+    "ph_first_name": "Ex. Jean-Paul",
+    "ph_last_name": "Ex. Nguemo",
+    "ph_email": "Ex. jean.nguemo@gmail.com",
+    "ph_phone": "Ex. +237 6 12 34 56 78",
+    "ph_country": "Ex. Camerunia",
+    "ph_city": "Ex. Bafoussam",
+    "v_name_min": "Minimum duo signa",
+    "v_email": "Cursus electronicus invalidus"
+  },
+  "quiz": {
+    "title": "Scientiam tuam proba",
+    "subtitle": "10 quaestiones, 30 secunda in quamque quaestionem. Punctum tuum communica!",
+    "choose_category": "Genus elige",
+    "start": "Quaestiones incipere",
+    "question_of": "Quaestio {current} ex {total}",
+    "time_left": "{seconds}s",
+    "next": "Sequens",
+    "finish": "Finire",
+    "score_title": "Punctum tuum",
+    "score_result": "{correct} responsa recta ex {total}",
+    "share_whatsapp": "Per WhatsApp communicare",
+    "share_message": "🎯 Adeptus sum {score}/100 in quaestionibus {category}! Potesne melius? Hic preme: {url}",
+    "play_again": "Iterum ludere",
+    "register_cta": "Praescribere",
+    "loading": "Quaestiones onerantur...",
+    "submit_error": "Punctum tuum mitti non potuit. Iterum conare.",
+    "no_questions": "Nullae quaestiones pro hoc genere praesto sunt.",
+    "campus_not_configured": "Campus non constitutus.",
+    "identify_title": "In albo praestantiae appare",
+    "identify_subtitle": "Adde cognomen ut in albo appareas. Vacuum relinque ut anonymus maneas.",
+    "display_name_label": "Cognomen",
+    "display_name_ph": "ex. Awa M.",
+    "city_label": "Urbs",
+    "city_ph": "ex. Douala",
+    "see_score": "Puncta mea vide",
+    "categories": {
+      "web": "Evolutio Interretialis",
+      "accounting": "Ratiocinium",
+      "marketing": "Mercatura Digitalis",
+      "general": "Cultura generalis"
+    }
+  },
+  "leaderboard": {
+    "title": "Ordo mensis",
+    "subtitle": "Primi 50 campi · Primi 20 nationales — renovatur prima die cuiusque mensis",
+    "refreshed_every_minute": "Singulis minutis renovatur",
+    "campus_leaderboard": "Primi campi",
+    "national_leaderboard": "Primi nationales",
+    "unavailable": "Ordo ad tempus praesto non est.",
+    "play_to_appear": "Lude quaestiones ut appareas",
+    "col_participant": "Particeps",
+    "col_score": "Punctum",
+    "col_category": "Genus",
+    "empty": "Nulli adhuc eventus."
+  },
+  "footer": {
+    "tagline": "Talenta crastina instituere.",
+    "privacy": "Ratio privatae vitae tuendae",
+    "contact": "Contactus",
+    "partner": "Socius fieri",
+    "faq": "Quaestiones",
+    "testimonials": "Testimonia"
+  },
+  "errors": {
+    "network": "Error retis. Conexionem tuam inspice.",
+    "not_found": "Pagina non inventa.",
+    "campus_not_found": "Campus non inventus. Quaeso nexum adhibitum inspice."
+  },
+  "campus_select": {
+    "title": "Campum tuum elige",
+    "subtitle": "Campum tibi proximum selige ut incipias.",
+    "empty": "Nullus campus in praesenti praesto est."
+  },
+  "privacy": {
+    "title": "Ratio privatae vitae tuendae",
+    "updated": "Ultima emendatio: Iunio 2026",
+    "intro": "Data tua tutantur secundum Legem Cameruniae n. 2010/012 de securitate cybernetica, et per analogiam cum RGPD Europaeo.",
+    "data_title": "Data quae colligimus",
+    "data_body": "Cum formulam comples, colligimus praenomen, nomen, cursum electronicum, et facultative telephonum, nationem, urbem et institutionem cupitam.",
+    "use_title": "Usus datorum",
+    "use_body": "Data tua tantum adhibentur ad praescriptionem tuam tractandam, te conveniendum et de institutionibus nostris certiorem faciendum. Numquam venduntur.",
+    "ip_title": "Inscriptiones IP et securitas",
+    "ip_body": "Inscriptio IP tua numquam aperte servatur: tantum eius nota SHA-256 per 90 dies conservatur, ad praesidium contra spam et fraudem.",
+    "rights_title": "Iura tua",
+    "rights_body": "Accessum, correctionem vel deletionem datorum tuorum quovis tempore per formulam contactus petere potes.",
+    "sharing_title": "Communicatio datorum",
+    "sharing_body": "Data tua tantum administratoribus auctoratis campi pertinentis patent. Nulla communicatio cum tertiis non auctoratis.",
+    "contact": "Ad iura tua exercenda, nos per formulam contactus conveni."
+  },
+  "testimonials": {
+    "title": "Fabulae successus",
+    "subtitle": "Itinera discipulorum nostrorum",
+    "empty": "Nulla testimonia adhuc.",
+    "promo": "Classis {year}",
+    "cta": "Nunc praescribe"
+  },
+  "faq": {
+    "title": "Quaestiones frequentes",
+    "subtitle": "Omnia quae scire debes antequam adscribaris",
+    "empty": "Nullae quaestiones adhuc."
+  },
+  "competition": {
+    "title": "Certamen mensis",
+    "subtitle": "Certamen {period}",
+    "closes_in": "Claudit post",
+    "days": "Dies",
+    "hours": "Horae",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "closed": "Certamen clausum est.",
+    "prizes_title": "Praemia vincenda",
+    "winners_title": "Victores",
+    "no_competition": "Nullum certamen nunc curritur.",
+    "play_cta": "Lude quaestionarium",
+    "share_whatsapp": "Communica per WhatsApp",
+    "share_message": "🏆 Adde te certamini quaestionarii et praemia vince! Adiunge me: {url}",
+    "register_cta": "Praescribe"
+  },
+  "courses": {
+    "title": "Cursuum praevisio",
+    "subtitle": "Gratis excerptum cursuum nostrorum cognosce",
+    "empty": "Nulla praevisio nunc praesto.",
+    "watch_video": "Vide pelliculam",
+    "cta": "Praescribe ad {program}"
+  },
+  "badge": {
+    "title": "Insigne tuum",
+    "participant": "Particeps",
+    "download": "Insigne deme",
+    "share": "Communica"
+  },
+  "challenge": {
+    "title": "Provoca amicos tuos",
+    "subtitle": "Communica punctum tuum et amicos provoca!",
+    "share_whatsapp": "Provoca per WhatsApp"
+  }
+}

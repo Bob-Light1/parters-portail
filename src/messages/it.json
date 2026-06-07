@@ -1,0 +1,188 @@
+{
+  "language": {
+    "switch": "Cambia lingua"
+  },
+  "nav": {
+    "home": "Home",
+    "quiz": "Quiz",
+    "leaderboard": "Classifica",
+    "register_cta": "Pre-iscriviti",
+    "menu": "Menu",
+    "competition": "Competizione",
+    "testimonials": "Testimonianze",
+    "courses": "Corsi",
+    "faq": "FAQ"
+  },
+  "home": {
+    "hero_title": "Unisciti alla prossima generazione di professionisti",
+    "hero_subtitle": "Corsi certificati in sviluppo web, contabilità, marketing digitale e molto altro.",
+    "cta_register": "Pre-iscriviti gratis",
+    "cta_quiz": "Metti alla prova le tue conoscenze",
+    "next_batch": "Prossima coorte:",
+    "students_trained": "Studenti formati",
+    "placement_rate": "Tasso di inserimento",
+    "partner_companies": "Aziende partner",
+    "quiz_section_title": "Metti alla prova le tue conoscenze",
+    "quiz_section_subtitle": "Quiz interattivo · Classifica mensile · Vinci premi",
+    "share_portal": "Condividi su WhatsApp",
+    "share_portal_message": "🎓 Dai un'occhiata a questo portale di formazione! Unisciti a noi qui: {url}"
+  },
+  "register": {
+    "title": "Pre-iscrizione gratuita",
+    "subtitle": "Esprimi il tuo interesse — il nostro team ti contatterà entro 48 ore.",
+    "first_name": "Nome",
+    "last_name": "Cognome",
+    "email": "Email",
+    "phone": "Telefono",
+    "program": "Corso di interesse",
+    "program_placeholder": "Scegli un corso",
+    "country": "Paese",
+    "city": "Città",
+    "submit": "Invia la mia pre-iscrizione",
+    "submitting": "Invio in corso...",
+    "success_title": "Pre-iscrizione ricevuta!",
+    "success_message": "Il nostro team ti contatterà entro 48 ore. Condividi questo portale con i tuoi amici!",
+    "success_share": "Condividi su WhatsApp",
+    "success_share_message": "🎓 Mi sono appena pre-iscritto a un corso di formazione professionale! Unisciti a me: {url}",
+    "error_generic": "Si è verificato un errore. Riprova.",
+    "error_duplicate": "Esiste già una richiesta con questa email per questo campus.",
+    "consent": "Inviando questo modulo, acconsento al trattamento dei miei dati in conformità con l'informativa sulla privacy.",
+    "required_fields": "* Campi obbligatori",
+    "partner_ref": "Segnalato da:",
+    "ph_first_name": "Es. Jean-Paul",
+    "ph_last_name": "Es. Nguemo",
+    "ph_email": "Es. jean.nguemo@gmail.com",
+    "ph_phone": "Es. +237 6 12 34 56 78",
+    "ph_country": "Es. Camerun",
+    "ph_city": "Es. Bafoussam",
+    "v_name_min": "Minimo 2 caratteri",
+    "v_email": "Email non valida"
+  },
+  "quiz": {
+    "title": "Metti alla prova le tue conoscenze",
+    "subtitle": "10 domande, 30 secondi per domanda. Condividi il tuo punteggio!",
+    "choose_category": "Scegli una categoria",
+    "start": "Inizia il quiz",
+    "question_of": "Domanda {current} di {total}",
+    "time_left": "{seconds}s",
+    "next": "Avanti",
+    "finish": "Termina",
+    "score_title": "Il tuo punteggio",
+    "score_result": "{correct} risposta/e corretta/e su {total}",
+    "share_whatsapp": "Condividi su WhatsApp",
+    "share_message": "🎯 Ho ottenuto {score}/100 al quiz {category}! Sai fare di meglio? Clicca qui: {url}",
+    "play_again": "Gioca di nuovo",
+    "register_cta": "Pre-iscriviti",
+    "loading": "Caricamento delle domande...",
+    "submit_error": "Impossibile inviare il punteggio. Riprova.",
+    "no_questions": "Nessuna domanda disponibile per questa categoria.",
+    "campus_not_configured": "Campus non configurato.",
+    "identify_title": "Compari in classifica",
+    "identify_subtitle": "Aggiungi un soprannome per comparire in classifica. Lascia vuoto per restare anonimo.",
+    "display_name_label": "Soprannome",
+    "display_name_ph": "es. Awa M.",
+    "city_label": "Città",
+    "city_ph": "es. Douala",
+    "see_score": "Vedi il mio punteggio",
+    "categories": {
+      "web": "Sviluppo Web",
+      "accounting": "Contabilità",
+      "marketing": "Marketing Digitale",
+      "general": "Cultura generale"
+    }
+  },
+  "leaderboard": {
+    "title": "Classifica del mese",
+    "subtitle": "Top 50 campus · Top 20 nazionale — rinnovata il 1° di ogni mese",
+    "refreshed_every_minute": "Aggiornata ogni minuto",
+    "campus_leaderboard": "Top campus",
+    "national_leaderboard": "Top nazionale",
+    "unavailable": "La classifica è temporaneamente non disponibile.",
+    "play_to_appear": "Gioca al quiz per comparire",
+    "col_participant": "Partecipante",
+    "col_score": "Punteggio",
+    "col_category": "Categoria",
+    "empty": "Ancora nessun risultato."
+  },
+  "footer": {
+    "tagline": "Formare i talenti di domani.",
+    "privacy": "Informativa sulla privacy",
+    "contact": "Contatto",
+    "partner": "Diventa partner",
+    "faq": "FAQ",
+    "testimonials": "Testimonianze"
+  },
+  "errors": {
+    "network": "Errore di rete. Controlla la tua connessione.",
+    "not_found": "Pagina non trovata.",
+    "campus_not_found": "Campus non trovato. Controlla il link utilizzato."
+  },
+  "campus_select": {
+    "title": "Scegli il tuo campus",
+    "subtitle": "Seleziona il campus più vicino a te per iniziare.",
+    "empty": "Nessun campus disponibile al momento."
+  },
+  "privacy": {
+    "title": "Informativa sulla privacy",
+    "updated": "Ultimo aggiornamento: giugno 2026",
+    "intro": "I tuoi dati sono protetti in conformità con la legge camerunese n. 2010/012 sulla sicurezza informatica e la criminalità informatica, e per analogia con il GDPR europeo.",
+    "data_title": "Dati che raccogliamo",
+    "data_body": "Quando compili un modulo, raccogliamo nome, cognome, email e, facoltativamente, telefono, paese, città e corso di interesse.",
+    "use_title": "Uso dei dati",
+    "use_body": "I tuoi dati vengono utilizzati solo per gestire la tua pre-iscrizione, ricontattarti e informarti sui nostri corsi. Non vengono mai venduti.",
+    "ip_title": "Indirizzi IP e sicurezza",
+    "ip_body": "Il tuo indirizzo IP non viene mai memorizzato in chiaro: solo il suo hash SHA-256 viene conservato per 90 giorni, per la protezione anti-spam e anti-frode.",
+    "rights_title": "I tuoi diritti",
+    "rights_body": "Puoi richiedere in qualsiasi momento l’accesso, la rettifica o la cancellazione dei tuoi dati tramite il modulo di contatto.",
+    "sharing_title": "Condivisione dei dati",
+    "sharing_body": "I tuoi dati sono accessibili solo agli amministratori autorizzati del campus interessato. Nessuna condivisione con terzi non autorizzati.",
+    "contact": "Per esercitare i tuoi diritti, contattaci tramite il modulo di contatto."
+  },
+  "testimonials": {
+    "title": "Storie di successo",
+    "subtitle": "I percorsi dei nostri ex studenti",
+    "empty": "Ancora nessuna testimonianza.",
+    "promo": "Classe {year}",
+    "cta": "Pre-iscriviti ora"
+  },
+  "faq": {
+    "title": "Domande frequenti",
+    "subtitle": "Tutto ciò che devi sapere prima di iscriverti",
+    "empty": "Ancora nessuna domanda."
+  },
+  "competition": {
+    "title": "Competizione del mese",
+    "subtitle": "Competizione {period}",
+    "closes_in": "Chiude tra",
+    "days": "Giorni",
+    "hours": "Ore",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "closed": "La competizione è chiusa.",
+    "prizes_title": "Premi da vincere",
+    "winners_title": "Vincitori",
+    "no_competition": "Nessuna competizione in corso al momento.",
+    "play_cta": "Gioca al quiz",
+    "share_whatsapp": "Condividi su WhatsApp",
+    "share_message": "🏆 Partecipa alla competizione del quiz e vinci premi! Unisciti a me: {url}",
+    "register_cta": "Pre-iscriviti"
+  },
+  "courses": {
+    "title": "Anteprima dei corsi",
+    "subtitle": "Scopri gratuitamente un estratto dei nostri corsi",
+    "empty": "Nessuna anteprima disponibile al momento.",
+    "watch_video": "Guarda il video",
+    "cta": "Pre-iscriviti a {program}"
+  },
+  "badge": {
+    "title": "Il tuo badge",
+    "participant": "Partecipante",
+    "download": "Scarica il badge",
+    "share": "Condividi"
+  },
+  "challenge": {
+    "title": "Sfida i tuoi amici",
+    "subtitle": "Condividi il tuo punteggio e sfida i tuoi amici a fare meglio!",
+    "share_whatsapp": "Sfida su WhatsApp"
+  }
+}

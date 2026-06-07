@@ -1,10 +1,17 @@
 {
+  "language": {
+    "switch": "Change language"
+  },
   "nav": {
     "home": "Home",
     "quiz": "Quiz",
-    "classement": "Leaderboard",
-    "programmes": "Programs",
-    "contact": "Contact"
+    "leaderboard": "Leaderboard",
+    "register_cta": "Pre-register",
+    "menu": "Menu",
+    "competition": "Competition",
+    "testimonials": "Testimonials",
+    "courses": "Courses",
+    "faq": "FAQ"
   },
   "home": {
     "hero_title": "Join the next generation of professionals",
@@ -14,7 +21,11 @@
     "next_batch": "Next cohort:",
     "students_trained": "Students trained",
     "placement_rate": "Placement rate",
-    "partner_companies": "Partner companies"
+    "partner_companies": "Partner companies",
+    "quiz_section_title": "Test your knowledge",
+    "quiz_section_subtitle": "Interactive quiz · Monthly leaderboard · Win rewards",
+    "share_portal": "Share on WhatsApp",
+    "share_portal_message": "🎓 Check out this training portal! Join us here: {url}"
   },
   "register": {
     "title": "Free pre-registration",
@@ -31,11 +42,21 @@
     "submitting": "Submitting...",
     "success_title": "Pre-registration received!",
     "success_message": "Our team will contact you within 48 hours. Share this portal with your friends!",
+    "success_share": "Share on WhatsApp",
+    "success_share_message": "🎓 I just pre-registered for a professional training program! Join me: {url}",
     "error_generic": "An error occurred. Please try again.",
     "error_duplicate": "A file with this email already exists for this campus.",
     "consent": "By submitting this form, I agree that my data will be processed in accordance with the privacy policy.",
     "required_fields": "* Required fields",
-    "partner_ref": "Referred by:"
+    "partner_ref": "Referred by:",
+    "ph_first_name": "e.g. Jean-Paul",
+    "ph_last_name": "e.g. Nguemo",
+    "ph_email": "e.g. jean.nguemo@gmail.com",
+    "ph_phone": "e.g. +237 6 12 34 56 78",
+    "ph_country": "e.g. Cameroon",
+    "ph_city": "e.g. Bafoussam",
+    "v_name_min": "Minimum 2 characters",
+    "v_email": "Invalid email"
   },
   "quiz": {
     "title": "Test your knowledge",
@@ -44,13 +65,25 @@
     "start": "Start the quiz",
     "question_of": "Question {current} of {total}",
     "time_left": "{seconds}s",
+    "next": "Next",
+    "finish": "Finish",
     "score_title": "Your score",
     "score_result": "{correct} correct answer(s) out of {total}",
     "share_whatsapp": "Share on WhatsApp",
+    "share_message": "🎯 I scored {score}/100 on the {category} quiz! Can you do better? Click here: {url}",
     "play_again": "Play again",
     "register_cta": "Pre-register",
     "loading": "Loading questions...",
-    "submit_error": "Unable to submit. Please try again.",
+    "submit_error": "Unable to submit your score. Please try again.",
+    "no_questions": "No questions available for this category.",
+    "campus_not_configured": "Campus not configured.",
+    "identify_title": "Appear on the leaderboard",
+    "identify_subtitle": "Add a nickname to show up on the leaderboard. Leave blank to stay anonymous.",
+    "display_name_label": "Nickname",
+    "display_name_ph": "e.g. Awa M.",
+    "city_label": "City",
+    "city_ph": "e.g. Douala",
+    "see_score": "See my score",
     "categories": {
       "web": "Web Development",
       "accounting": "Accounting",
@@ -60,31 +93,96 @@
   },
   "leaderboard": {
     "title": "Monthly leaderboard",
-    "subtitle": "Top {limit} — renewed on the 1st of each month",
-    "rank": "Rank",
-    "name": "Participant",
-    "score": "Score",
-    "city": "City",
-    "period": "Period",
-    "empty": "No results this month. Be the first!",
-    "loading": "Loading leaderboard...",
-    "challenge": "Challenge a friend",
-    "scope_campus": "Campus",
-    "scope_national": "National"
-  },
-  "whatsapp": {
-    "quiz_share": "🎯 I scored {score}/100 on the {category} quiz! Can you do better? Click here: {url}",
-    "challenge": "🏆 I challenge you on the {category} quiz! Click here to play: {url}"
+    "subtitle": "Top 50 campus · Top 20 national — renewed on the 1st of each month",
+    "refreshed_every_minute": "Updated every minute",
+    "campus_leaderboard": "Campus top",
+    "national_leaderboard": "National top",
+    "unavailable": "The leaderboard is temporarily unavailable.",
+    "play_to_appear": "Play the quiz to appear",
+    "col_participant": "Participant",
+    "col_score": "Score",
+    "col_category": "Category",
+    "empty": "No results yet."
   },
   "footer": {
     "tagline": "Training tomorrow's talent.",
     "privacy": "Privacy policy",
     "contact": "Contact",
-    "partner": "Become a partner"
+    "partner": "Become a partner",
+    "faq": "FAQ",
+    "testimonials": "Testimonials"
   },
   "errors": {
     "network": "Network error. Check your connection.",
     "not_found": "Page not found.",
     "campus_not_found": "Campus not found. Please check the link you used."
+  },
+  "campus_select": {
+    "title": "Choose your campus",
+    "subtitle": "Select the campus nearest to you to get started.",
+    "empty": "No campus available at the moment."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: June 2026",
+    "intro": "Your data is protected in accordance with Cameroon Law No. 2010/012 on cybersecurity and cybercrime, and by analogy with the European GDPR.",
+    "data_title": "Data we collect",
+    "data_body": "When you fill in a form, we collect your first name, last name, email, and optionally your phone number, country, city and program of interest.",
+    "use_title": "How we use your data",
+    "use_body": "Your data is used only to process your pre-registration, contact you back and inform you about our programs. It is never sold.",
+    "ip_title": "IP addresses and security",
+    "ip_body": "Your IP address is never stored in clear text: only its SHA-256 hash is kept for 90 days, for anti-spam and anti-fraud protection.",
+    "rights_title": "Your rights",
+    "rights_body": "You may request access to, correction of, or deletion of your data at any time through the contact form.",
+    "sharing_title": "Data sharing",
+    "sharing_body": "Your data is accessible only to authorized administrators of the relevant campus. No sharing with unauthorized third parties.",
+    "contact": "To exercise your rights, contact us through the contact form."
+  },
+  "testimonials": {
+    "title": "Success stories",
+    "subtitle": "The journeys of our former students",
+    "empty": "No testimonials yet.",
+    "promo": "Class of {year}",
+    "cta": "Pre-register now"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "Everything you need to know before enrolling",
+    "empty": "No questions yet."
+  },
+  "competition": {
+    "title": "Competition of the month",
+    "subtitle": "Competition {period}",
+    "closes_in": "Closes in",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "closed": "The competition is closed.",
+    "prizes_title": "Prizes to win",
+    "winners_title": "Winners",
+    "no_competition": "No competition running at the moment.",
+    "play_cta": "Play the quiz",
+    "share_whatsapp": "Share on WhatsApp",
+    "share_message": "🏆 Join the quiz competition and win prizes! Join me: {url}",
+    "register_cta": "Pre-register"
+  },
+  "courses": {
+    "title": "Course previews",
+    "subtitle": "Get a free taste of our programs",
+    "empty": "No previews available yet.",
+    "watch_video": "Watch the video",
+    "cta": "Pre-register for {program}"
+  },
+  "badge": {
+    "title": "Your badge",
+    "participant": "Participant",
+    "download": "Download badge",
+    "share": "Share"
+  },
+  "challenge": {
+    "title": "Challenge your friends",
+    "subtitle": "Share your score and dare your friends to beat it!",
+    "share_whatsapp": "Challenge on WhatsApp"
   }
 }

@@ -1,10 +1,17 @@
 {
+  "language": {
+    "switch": "Changer de langue"
+  },
   "nav": {
     "home": "Accueil",
     "quiz": "Quiz",
-    "classement": "Classement",
-    "programmes": "Programmes",
-    "contact": "Contact"
+    "leaderboard": "Classement",
+    "register_cta": "Se pré-inscrire",
+    "menu": "Menu",
+    "competition": "Compétition",
+    "testimonials": "Témoignages",
+    "courses": "Cours",
+    "faq": "FAQ"
   },
   "home": {
     "hero_title": "Rejoignez la prochaine génération de professionnels",
@@ -14,7 +21,11 @@
     "next_batch": "Prochaine cohorte :",
     "students_trained": "Apprenants formés",
     "placement_rate": "Taux d'insertion",
-    "partner_companies": "Entreprises partenaires"
+    "partner_companies": "Entreprises partenaires",
+    "quiz_section_title": "Testez vos connaissances",
+    "quiz_section_subtitle": "Quiz interactif · Classement mensuel · Gagnez des récompenses",
+    "share_portal": "Partager sur WhatsApp",
+    "share_portal_message": "🎓 Découvre ce portail de formation ! Rejoins-nous ici : {url}"
   },
   "register": {
     "title": "Pré-inscription gratuite",
@@ -31,11 +42,21 @@
     "submitting": "Envoi en cours...",
     "success_title": "Pré-inscription reçue !",
     "success_message": "Notre équipe vous contactera sous 48 heures. Partagez ce portail avec vos amis !",
+    "success_share": "Partager sur WhatsApp",
+    "success_share_message": "🎓 Je viens de me pré-inscrire à une formation professionnelle ! Rejoins-moi : {url}",
     "error_generic": "Une erreur est survenue. Veuillez réessayer.",
     "error_duplicate": "Un dossier avec cet email existe déjà pour ce campus.",
     "consent": "En soumettant ce formulaire, j'accepte que mes données soient traitées conformément à la politique de confidentialité.",
     "required_fields": "* Champs obligatoires",
-    "partner_ref": "Référencé par :"
+    "partner_ref": "Référencé par :",
+    "ph_first_name": "Ex : Jean-Paul",
+    "ph_last_name": "Ex : Nguemo",
+    "ph_email": "Ex : jean.nguemo@gmail.com",
+    "ph_phone": "Ex : +237 6 12 34 56 78",
+    "ph_country": "Ex : Cameroun",
+    "ph_city": "Ex : Bafoussam",
+    "v_name_min": "Minimum 2 caractères",
+    "v_email": "Email invalide"
   },
   "quiz": {
     "title": "Testez vos connaissances",
@@ -44,13 +65,25 @@
     "start": "Commencer le quiz",
     "question_of": "Question {current} sur {total}",
     "time_left": "{seconds}s",
+    "next": "Suivant",
+    "finish": "Terminer",
     "score_title": "Votre score",
     "score_result": "{correct} bonne(s) réponse(s) sur {total}",
     "share_whatsapp": "Partager sur WhatsApp",
+    "share_message": "🎯 J'ai obtenu {score}/100 au quiz {category} ! Peux-tu faire mieux ? Clique ici : {url}",
     "play_again": "Rejouer",
     "register_cta": "Me pré-inscrire",
     "loading": "Chargement des questions...",
-    "submit_error": "Impossible de soumettre. Réessayez.",
+    "submit_error": "Impossible de soumettre votre score. Réessayez.",
+    "no_questions": "Aucune question disponible pour cette catégorie.",
+    "campus_not_configured": "Campus non configuré.",
+    "identify_title": "Apparaissez au classement",
+    "identify_subtitle": "Ajoutez un pseudo pour figurer au classement. Laissez vide pour rester anonyme.",
+    "display_name_label": "Pseudo",
+    "display_name_ph": "Ex. Awa M.",
+    "city_label": "Ville",
+    "city_ph": "Ex. Douala",
+    "see_score": "Voir mon score",
     "categories": {
       "web": "Développement Web",
       "accounting": "Comptabilité",
@@ -60,31 +93,96 @@
   },
   "leaderboard": {
     "title": "Classement du mois",
-    "subtitle": "Top {limit} — renouvelé chaque 1er du mois",
-    "rank": "Rang",
-    "name": "Participant",
-    "score": "Score",
-    "city": "Ville",
-    "period": "Période",
-    "empty": "Aucun résultat ce mois-ci. Soyez le premier !",
-    "loading": "Chargement du classement...",
-    "challenge": "Défier un ami",
-    "scope_campus": "Campus",
-    "scope_national": "National"
-  },
-  "whatsapp": {
-    "quiz_share": "🎯 J'ai obtenu {score}/100 au quiz {category} ! Peux-tu faire mieux ? Clique ici : {url}",
-    "challenge": "🏆 Je te défie sur le quiz {category} ! Clique ici pour jouer : {url}"
+    "subtitle": "Top 50 campus · Top 20 national — renouvelé chaque 1er du mois",
+    "refreshed_every_minute": "Mis à jour toutes les minutes",
+    "campus_leaderboard": "Top campus",
+    "national_leaderboard": "Top national",
+    "unavailable": "Le classement est temporairement indisponible.",
+    "play_to_appear": "Jouer au quiz pour apparaître",
+    "col_participant": "Participant",
+    "col_score": "Score",
+    "col_category": "Catégorie",
+    "empty": "Aucun résultat pour le moment."
   },
   "footer": {
     "tagline": "Former les talents de demain.",
     "privacy": "Politique de confidentialité",
     "contact": "Contact",
-    "partner": "Devenir partenaire"
+    "partner": "Devenir partenaire",
+    "faq": "FAQ",
+    "testimonials": "Témoignages"
   },
   "errors": {
     "network": "Erreur réseau. Vérifiez votre connexion.",
     "not_found": "Page introuvable.",
     "campus_not_found": "Campus introuvable. Vérifiez le lien utilisé."
+  },
+  "campus_select": {
+    "title": "Choisissez votre campus",
+    "subtitle": "Sélectionnez le campus le plus proche de chez vous pour commencer.",
+    "empty": "Aucun campus disponible pour le moment."
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour : juin 2026",
+    "intro": "La protection de vos données est traitée conformément à la Loi n°2010/012 du Cameroun sur la cybersécurité et la cybercriminalité, et par analogie avec le RGPD européen.",
+    "data_title": "Données que nous collectons",
+    "data_body": "Lorsque vous remplissez un formulaire, nous collectons votre prénom, nom, email, et facultativement votre téléphone, pays, ville et formation d'intérêt.",
+    "use_title": "Utilisation des données",
+    "use_body": "Vos données servent uniquement à traiter votre pré-inscription, vous recontacter et vous informer sur nos formations. Elles ne sont jamais vendues.",
+    "ip_title": "Adresses IP et sécurité",
+    "ip_body": "Votre adresse IP n'est jamais stockée en clair : seul son empreinte SHA-256 est conservée 90 jours, à des fins de protection anti-spam et anti-fraude.",
+    "rights_title": "Vos droits",
+    "rights_body": "Vous pouvez demander l'accès, la rectification ou la suppression de vos données à tout moment via le formulaire de contact.",
+    "sharing_title": "Partage des données",
+    "sharing_body": "Vos données sont accessibles uniquement aux administrateurs autorisés du campus concerné. Aucun partage avec des tiers non autorisés.",
+    "contact": "Pour exercer vos droits, contactez-nous via le formulaire de contact."
+  },
+  "testimonials": {
+    "title": "Ils ont réussi",
+    "subtitle": "Les parcours de nos anciens apprenants",
+    "empty": "Aucun témoignage pour le moment.",
+    "promo": "Promo {year}",
+    "cta": "Je me pré-inscris"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "subtitle": "Tout ce que vous devez savoir avant de vous inscrire",
+    "empty": "Aucune question pour le moment."
+  },
+  "competition": {
+    "title": "Compétition du mois",
+    "subtitle": "Compétition {period}",
+    "closes_in": "Clôture dans",
+    "days": "Jours",
+    "hours": "Heures",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "closed": "La compétition est clôturée.",
+    "prizes_title": "Les prix à gagner",
+    "winners_title": "Gagnants",
+    "no_competition": "Aucune compétition en cours pour le moment.",
+    "play_cta": "Jouer au quiz",
+    "share_whatsapp": "Partager sur WhatsApp",
+    "share_message": "🏆 Participe à la compétition de quiz et gagne des prix ! Rejoins-moi : {url}",
+    "register_cta": "Me pré-inscrire"
+  },
+  "courses": {
+    "title": "Aperçu des cours",
+    "subtitle": "Découvrez gratuitement un extrait de nos formations",
+    "empty": "Aucun aperçu disponible pour le moment.",
+    "watch_video": "Voir la vidéo",
+    "cta": "Me pré-inscrire en {program}"
+  },
+  "badge": {
+    "title": "Votre badge",
+    "participant": "Participant",
+    "download": "Télécharger le badge",
+    "share": "Partager"
+  },
+  "challenge": {
+    "title": "Défie tes amis",
+    "subtitle": "Partage ton score et invite tes amis à faire mieux !",
+    "share_whatsapp": "Défier sur WhatsApp"
   }
 }
