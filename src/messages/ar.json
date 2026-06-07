@@ -258,7 +258,8 @@
     "play_again": "إعادة الاختبار",
     "no_questions": "لا توجد أسئلة توجيه متاحة حالياً.",
     "submit_error": "تعذّر التقديم. يُرجى المحاولة مرة أخرى.",
-    "score_result": "{correct} إجابة/إجابات صحيحة من {total}"
+    "score_result": "{correct} إجابة/إجابات صحيحة من {total}",
+    "register_cta_plain": "التسجيل المسبق"
   },
   "alert": {
     "title": "تنبيه الدورة",

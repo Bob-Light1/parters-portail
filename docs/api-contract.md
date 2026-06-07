@@ -81,6 +81,9 @@ Base: `/api/public` — mounted **before** the JWT middlewares. All behind `publ
 | 9 | GET | `/faq` | §4.11 | 24 h portal cache |
 | 10 | GET | `/competition/prizes` | §4.12 | |
 | 11 | GET | `/course-previews` | **§7 (addition)** | Phase 2 course previews |
+| 12 | POST | `/contact` | §4.8 | rate-limited **5/h/IP** |
+| 13 | POST | `/partner-application` | §4.9 / §7.9 | rate-limited **3/h/IP** |
+| 14 | POST | `/alert` | §4.13 | rate-limited **5/h/IP** |
 
 ---
 
@@ -193,7 +196,14 @@ Body: `{ campusSlug, sessionToken, category, answers:[{questionId,selectedIndex}
 `data`:
 
 ```jsonc
-{ "sessionId": "…", "score": 0, "correctAnswers": 0, "totalQuestions": 0, "period": "YYYY-MM" }
+{
+  "sessionId": "…",
+  "score": 0,
+  "correctAnswers": 0,
+  "totalQuestions": 0,
+  "period": "YYYY-MM",
+  "recommendedProgram": "… | null"   // present when category === "placement" and campus has programs
+}
 ```
 
 Proxied via `/api/quiz/submit`.
@@ -287,6 +297,76 @@ sorted by `order` then `createdAt` descending. Bilingual `{fr,en}` content passe
 ```
 
 Consumed by `getCoursePreviews()` in `erp-client.ts`.
+
+---
+
+### 12. `POST /contact`  — *Phase 3*
+
+Contact form (spec §4.8). Transmits the message to the ERP for internal notification. **Rate-limited to 5 req/h/IP.**
+
+Body:
+
+```jsonc
+{
+  "name": "string (required)",
+  "email": "string (optional, one of email/phone required)",
+  "phone": "string (optional, one of email/phone required)",
+  "subject": "Inscription | Partenariat | Autre",
+  "message": "string (required)",
+  "honeypot": ""
+}
+```
+
+Response: `200 OK` with no `data`. Errors: `400` (validation), `429` (rate limit).
+
+---
+
+### 13. `POST /partner-application`  — *Phase 3*
+
+Partner candidacy form (spec §4.9 / §7.9 / §8.6). Creates a `PartnerApplication` with `status: "pending"`. **Rate-limited to 3 req/h/IP.**
+
+Body:
+
+```jsonc
+{
+  "firstName": "string (required)",
+  "lastName": "string (required)",
+  "email": "string (required)",
+  "phone": "string (optional)",
+  "commercialType": "influencer | church_leader | student_leader | teacher | parent | other",
+  "channelType": "online | offline | hybrid",
+  "message": "string (optional)",
+  "campusSlug": "string (optional)",
+  "honeypot": ""
+}
+```
+
+`data`: `{ "applicationId": "…" }`. Errors: `400` (validation), `404` (campus not found), `429` (rate limit).
+
+Proxied via `/api/partner-application`. Admin reviews at `GET /api/portal-admin/applications`.
+
+---
+
+### 14. `POST /alert`  — *Phase 3*
+
+Session-alert opt-in (spec §4.13). Sets `notifyNextBatch: true` on an existing lead (matched by email or phone on the campus), or creates a minimal lead if none exists. **Rate-limited to 5 req/h/IP.**
+
+Body:
+
+```jsonc
+{
+  "email": "string (optional, one of email/phone required)",
+  "phone": "string (optional, one of email/phone required)",
+  "campusSlug": "string (optional, falls back to DEFAULT_CAMPUS_SLUG)",
+  "programInterest": "string (optional)",
+  "honeypot": ""
+}
+```
+
+`data`: `{ "leadId": "…" }`. Status `200` if existing lead updated, `201` if new lead created.
+Errors: `400` (validation), `404` (campus not found), `429` (rate limit).
+
+Proxied via `/api/alert`.
 
 ---
 

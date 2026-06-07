@@ -258,7 +258,8 @@
     "play_again": "Ripeti il test",
     "no_questions": "Nessuna domanda di posizionamento disponibile al momento.",
     "submit_error": "Impossibile inviare. Riprova.",
-    "score_result": "{correct} risposta/e corretta/e su {total}"
+    "score_result": "{correct} risposta/e corretta/e su {total}",
+    "register_cta_plain": "Pre-iscriviti"
   },
   "alert": {
     "title": "Avviso di sessione",

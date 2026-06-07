@@ -258,7 +258,8 @@
     "play_again": "重新测试",
     "no_questions": "暂无可用的定向题目。",
     "submit_error": "提交失败，请重试。",
-    "score_result": "{total} 题中答对 {correct} 题"
+    "score_result": "{total} 题中答对 {correct} 题",
+    "register_cta_plain": "预报名"
   },
   "alert": {
     "title": "开班提醒",

@@ -258,7 +258,8 @@
     "play_again": "Test wiederholen",
     "no_questions": "Derzeit keine Einstufungsfragen verfügbar.",
     "submit_error": "Einreichung fehlgeschlagen. Bitte versuchen Sie es erneut.",
-    "score_result": "{correct} richtige Antwort(en) von {total}"
+    "score_result": "{correct} richtige Antwort(en) von {total}",
+    "register_cta_plain": "Vormerken"
   },
   "alert": {
     "title": "Sitzungsalarm",

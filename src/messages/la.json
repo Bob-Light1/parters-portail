@@ -258,7 +258,8 @@
     "play_again": "Examen repete",
     "no_questions": "Nulla quaestio positionis nunc praesto est.",
     "submit_error": "Mittere non potui. Iterum conare.",
-    "score_result": "{correct} responsum/a rectum/a ex {total}"
+    "score_result": "{correct} responsum/a rectum/a ex {total}",
+    "register_cta_plain": "Praescribe"
   },
   "alert": {
     "title": "Monitio sessionis",

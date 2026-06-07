@@ -205,7 +205,7 @@ export default function PlacementPage() {
   }
 
   const program = result?.recommendedProgram;
-  const registerHref = `/${locale}#inscription${program ? `?program=${encodeURIComponent(program)}` : ''}`;
+  const registerHref = `/${locale}${program ? `?program=${encodeURIComponent(program)}` : ''}#inscription`;
 
   return (
     <div className="max-w-xl mx-auto px-4 py-16 text-center">
@@ -252,7 +252,7 @@ export default function PlacementPage() {
           href={`/${locale}#inscription`}
           className="block mt-6 text-center bg-[#0f2d5e] text-white font-bold px-8 py-3 rounded-full hover:bg-[#0a2347] transition-colors max-w-xs mx-auto"
         >
-          {t('register_cta', { program: '' }).replace(' ', '').trim() || '→'}
+          {t('register_cta_plain')}
         </Link>
       )}
     </div>

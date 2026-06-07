@@ -258,7 +258,8 @@
     "play_again": "Retake the test",
     "no_questions": "No placement questions available yet.",
     "submit_error": "Unable to submit. Please try again.",
-    "score_result": "{correct} correct answer(s) out of {total}"
+    "score_result": "{correct} correct answer(s) out of {total}",
+    "register_cta_plain": "Pre-register"
   },
   "alert": {
     "title": "Session alert",

@@ -258,7 +258,8 @@
     "play_again": "Refaire le test",
     "no_questions": "Aucune question de positionnement disponible pour le moment.",
     "submit_error": "Impossible de soumettre vos réponses. Réessayez.",
-    "score_result": "{correct} bonne(s) réponse(s) sur {total}"
+    "score_result": "{correct} bonne(s) réponse(s) sur {total}",
+    "register_cta_plain": "Me pré-inscrire"
   },
   "alert": {
     "title": "Alerte de session",
