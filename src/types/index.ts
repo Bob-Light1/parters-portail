@@ -86,6 +86,7 @@ export interface QuizResult {
   correctAnswers: number;
   totalQuestions: number;
   period: string;
+  recommendedProgram?: string | null;
 }
 
 // ── Leaderboard ───────────────────────────────────────────────────────────────

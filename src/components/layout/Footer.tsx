@@ -16,8 +16,8 @@ export default function Footer() {
           <Link href={`/${locale}/faq`} className="hover:text-white transition-colors">{t('faq')}</Link>
           <Link href={`/${locale}/temoignages`} className="hover:text-white transition-colors">{t('testimonials')}</Link>
           <Link href={`/${locale}/confidentialite`} className="hover:text-white transition-colors">{t('privacy')}</Link>
-          <Link href={`/${locale}#inscription`} className="hover:text-white transition-colors">{t('contact')}</Link>
-          <Link href={`/${locale}#inscription`} className="hover:text-white transition-colors">{t('partner')}</Link>
+          <Link href={`/${locale}/contact`} className="hover:text-white transition-colors">{t('contact')}</Link>
+          <Link href={`/${locale}/partenaire`} className="hover:text-white transition-colors">{t('partner')}</Link>
         </div>
         <p className="text-white/40 text-xs">© {new Date().getFullYear()} {BRAND}</p>
       </div>
