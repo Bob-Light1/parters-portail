@@ -46,24 +46,29 @@ type StatItem = { icon: typeof Users; label: string; value: string };
 
 /**
  * Builds the home credibility counters from the campus stats returned by the ERP.
- * Falls back to representative defaults when a campus has not configured them yet,
- * so the section never renders empty.
+ * Only stats the establishment has actually configured are shown — we never
+ * fabricate placement rates or head-counts, which would be misleading and erode
+ * trust. The caller hides the whole section when nothing is configured.
  */
 function buildStats(
   stats: CampusStats | undefined,
   locale: string,
   labels: { students: string; placement: string; partners: string },
 ): StatItem[] {
-  const students = stats?.studentsTrained ?? 2000;
-  const placement = stats?.placementRate ?? 85;
-  const partners = stats?.partnerCompanies ?? 120;
   const number = (value: number) => value.toLocaleString(locale);
+  const items: StatItem[] = [];
 
-  return [
-    { icon: Users, label: labels.students, value: `${number(students)}+` },
-    { icon: TrendingUp, label: labels.placement, value: `${placement}%` },
-    { icon: Building, label: labels.partners, value: `${number(partners)}+` },
-  ];
+  if (stats?.studentsTrained != null) {
+    items.push({ icon: Users, label: labels.students, value: `${number(stats.studentsTrained)}+` });
+  }
+  if (stats?.placementRate != null) {
+    items.push({ icon: TrendingUp, label: labels.placement, value: `${stats.placementRate}%` });
+  }
+  if (stats?.partnerCompanies != null) {
+    items.push({ icon: Building, label: labels.partners, value: `${number(stats.partnerCompanies)}+` });
+  }
+
+  return items;
 }
 
 // ── Page ────────────────────────────────────────────────────────────────────
@@ -192,9 +197,14 @@ export default async function HomePage({ params, searchParams }: HomePageProps) 
         </div>
       </section>
 
-      {/* ── Stats ── */}
+      {/* ── Stats (only rendered when the establishment has configured them) ── */}
+      {stats.length > 0 && (
       <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div
+          className={`max-w-4xl mx-auto px-4 grid grid-cols-1 gap-8 text-center ${
+            stats.length >= 3 ? 'sm:grid-cols-3' : stats.length === 2 ? 'sm:grid-cols-2' : ''
+          }`}
+        >
           {stats.map(({ icon: Icon, label, value }) => (
             <div key={label} className="flex flex-col items-center gap-2">
               <div className="w-14 h-14 bg-[#0f2d5e]/10 rounded-full flex items-center justify-center">
@@ -206,6 +216,7 @@ export default async function HomePage({ params, searchParams }: HomePageProps) 
           ))}
         </div>
       </section>
+      )}
 
       {/* ── Quiz CTA ── */}
       <section className="py-16 bg-yellow-50 border-t border-yellow-100">

@@ -92,7 +92,6 @@ export interface QuizResult {
 // ── Leaderboard ───────────────────────────────────────────────────────────────
 
 export interface LeaderboardEntry {
-  sessionId: string;
   rank: number;
   displayName: string;
   city: string | null;

@@ -34,7 +34,7 @@ export default function LeaderboardTable({ entries = [], title, labels }: Leader
             </thead>
             <tbody>
               {entries.map((entry, i) => (
-                <tr key={entry.sessionId} className={`border-t border-gray-100 ${i < 3 ? 'font-semibold' : ''}`}>
+                <tr key={entry.rank} className={`border-t border-gray-100 ${i < 3 ? 'font-semibold' : ''}`}>
                   <td className="px-4 py-3">
                     {i < 3 ? (
                       <Medal className={`w-5 h-5 ${MEDAL_COLORS[i]}`} />

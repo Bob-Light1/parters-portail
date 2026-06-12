@@ -33,10 +33,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   return (
     <html lang={locale} dir={getDirection(locale)}>
       <head>
+        {/* Apple web-app meta tags are emitted by the root `appleWebApp` metadata. */}
         <meta name="theme-color" content="#0f2d5e" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="min-h-screen bg-white text-gray-900 antialiased flex flex-col">
         {PLAUSIBLE_DOMAIN && (
