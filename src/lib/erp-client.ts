@@ -143,8 +143,11 @@ export async function getCoursePreviews(campusSlug: string, program?: string): P
 
 // ── Pre-registration (client-safe → /api/pre-register) ──────────────────────
 
-export async function postPreRegister(payload: PreRegisterPayload): Promise<{ leadId: string; status: string }> {
-  return portalFetch('/api/pre-register', {
+// The ERP accepts the lead asynchronously (202 Accepted) and persists it off the
+// request path, so no lead id is returned. Resolves on success; rejects with a
+// `.status` on a non-2xx response (e.g. 409 duplicate, handled by the form).
+export async function postPreRegister(payload: PreRegisterPayload): Promise<void> {
+  await portalFetch<void>('/api/pre-register', {
     method: 'POST',
     body:   JSON.stringify(payload),
   });
@@ -157,7 +160,16 @@ export async function getQuizQuestions(
   category: string,
   lang: 'fr' | 'en' = 'fr',
   limit = 10,
-): Promise<{ questions: QuizQuestion[]; campusSlug: string; category: string | null; lang: string }> {
+): Promise<{
+  questions: QuizQuestion[];
+  campusSlug: string;
+  category: string | null;
+  lang: string;
+  // Server-issued session token bound to the exact served question set; it must
+  // be echoed back on submit so the ERP can score authoritatively. Null when no
+  // questions were available (no session is created in that case).
+  sessionToken: string | null;
+}> {
   const params = new URLSearchParams({ campusSlug, category, lang, limit: String(limit) });
   return portalFetch(`/api/quiz?${params.toString()}`);
 }

@@ -25,6 +25,8 @@ export default function PlacementPage() {
 
   const [phase, setPhase] = useState<Phase>('start');
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  // Server-issued token bound to the served questions; echoed back on submit.
+  const [sessionToken, setSessionToken] = useState<string | null>(null);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
@@ -39,14 +41,19 @@ export default function PlacementPage() {
 
   const submitPlacement = useCallback(
     async (finalAnswers: QuizAnswer[]) => {
-      const answered = finalAnswers.filter((a) => a.selectedIndex >= 0);
+      // Send every served question (skipped ones carry selectedIndex -1). The ERP
+      // scores against the server-issued session, so the denominator is fixed
+      // server-side and dropping unanswered questions can no longer skew it.
+      if (!sessionToken) {
+        setError(t('submit_error'));
+        setPhase('result');
+        return;
+      }
       const { partnerCode: code, source } = getTrackingContext();
       try {
         const res = await submitQuiz({
-          campusSlug,
-          sessionToken: `placement-${Date.now()}-${Math.random().toString(36).slice(2)}`,
-          category: PLACEMENT_CATEGORY,
-          answers: answered,
+          sessionToken,
+          answers: finalAnswers,
           partnerCode: code,
           source,
         });
@@ -57,7 +64,7 @@ export default function PlacementPage() {
         setPhase('result');
       }
     },
-    [campusSlug, t],
+    [sessionToken, t],
   );
 
   const nextQuestion = useCallback(() => {
@@ -90,8 +97,9 @@ export default function PlacementPage() {
     setError('');
     try {
       const data = await getQuizQuestions(campusSlug, PLACEMENT_CATEGORY, locale as 'fr' | 'en', 8);
-      if (!data.questions.length) { setError(t('no_questions')); setLoading(false); return; }
+      if (!data.questions.length || !data.sessionToken) { setError(t('no_questions')); setLoading(false); return; }
       setQuestions(data.questions);
+      setSessionToken(data.sessionToken);
       setCurrent(0);
       setAnswers([]);
       setSelected(null);
@@ -109,6 +117,7 @@ export default function PlacementPage() {
   const restart = () => {
     setPhase('start');
     setQuestions([]);
+    setSessionToken(null);
     setResult(null);
     setAnswers([]);
     setCurrent(0);

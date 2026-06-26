@@ -32,11 +32,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <html lang={locale} dir={getDirection(locale)}>
-      <head>
-        {/* Apple web-app meta tags are emitted by the root `appleWebApp` metadata. */}
-        <meta name="theme-color" content="#0f2d5e" />
-        <meta name="mobile-web-app-capable" content="yes" />
-      </head>
+      {/* No manual <head>: theme-color, web-app and Apple meta tags are emitted
+          by the root layout's `viewport` and `metadata` exports, so Next.js owns
+          head insertion (incl. the global CSS <link>) on every navigation. */}
       <body className="min-h-screen bg-white text-gray-900 antialiased flex flex-col">
         {PLAUSIBLE_DOMAIN && (
           <Script defer data-domain={PLAUSIBLE_DOMAIN} src={PLAUSIBLE_SRC} strategy="afterInteractive" />

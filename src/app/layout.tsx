@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'AcadERP';
@@ -35,6 +35,16 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: ['/icon-512.png'],
   },
+  // Generic (non-Apple) install hint. Apple's is emitted via `appleWebApp`.
+  other: { 'mobile-web-app-capable': 'yes' },
+};
+
+// `themeColor` belongs in the viewport export (App Router idiom). Expressing it
+// here — rather than as a raw <meta> in a hand-written <head> — lets Next.js own
+// the document head, which keeps the global CSS <link> insertion intact and
+// avoids the dev-only "preloaded but not used" warning on client navigation.
+export const viewport: Viewport = {
+  themeColor: '#0f2d5e',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

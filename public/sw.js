@@ -5,7 +5,7 @@
 //  - Quiz and pre-reg form pages: Cache-first.
 //  - Everything else: Network-only (no silent stale data for dynamic ERP content).
 
-const CACHE_NAME = 'portal-v1';
+const CACHE_NAME = 'portal-v2';
 
 const PRECACHE_URLS = [
   '/',
@@ -74,7 +74,11 @@ self.addEventListener('fetch', (event) => {
       caches.match(request).then((cached) => {
         if (cached) return cached;
         return fetch(request).then((res) => {
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, res.clone()));
+          // Clone synchronously: caches.open() is async, so cloning inside its
+          // callback runs after `res` is already being consumed by the browser
+          // ("Response body is already used"). Mirrors the other two handlers.
+          const clone = res.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           return res;
         });
       }),

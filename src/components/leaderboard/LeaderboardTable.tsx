@@ -6,6 +6,7 @@ interface LeaderboardTableProps {
   title: string;
   labels: {
     participant: string;
+    anonymous: string;
     score: string;
     category: string;
     empty: string;
@@ -43,7 +44,7 @@ export default function LeaderboardTable({ entries = [], title, labels }: Leader
                     )}
                   </td>
                   <td className="px-4 py-3 text-gray-900">
-                    <span className="block">{entry.displayName}</span>
+                    <span className="block">{entry.displayName || labels.anonymous}</span>
                     {entry.city && (
                       <span className="block text-xs font-normal text-gray-400">{entry.city}</span>
                     )}

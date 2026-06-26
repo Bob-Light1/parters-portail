@@ -69,9 +69,10 @@ export interface QuizAnswer {
 }
 
 export interface QuizSubmitPayload {
-  campusSlug: string;
+  // Server-issued token from getQuizQuestions; binds the submission to the exact
+  // served question set. Campus and category are resolved from it on the ERP
+  // side and are no longer sent here.
   sessionToken: string;
-  category: string;
   answers: QuizAnswer[];
   displayName?: string;
   city?: string;
@@ -93,7 +94,8 @@ export interface QuizResult {
 
 export interface LeaderboardEntry {
   rank: number;
-  displayName: string;
+  /** null when the participant gave no pseudonym — render a localized fallback. */
+  displayName: string | null;
   city: string | null;
   country: string | null;
   score: number;

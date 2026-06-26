@@ -35,6 +35,8 @@ export default function QuizPage() {
   const [phase, setPhase] = useState<Phase>('pick');
   const [category, setCategory] = useState(initialCategory);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  // Server-issued token bound to the served questions; echoed back on submit.
+  const [sessionToken, setSessionToken] = useState<string | null>(null);
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [answers, setAnswers] = useState<QuizAnswer[]>([]);
@@ -60,14 +62,20 @@ export default function QuizPage() {
 
   const finishQuiz = useCallback(
     async (finalAnswers: QuizAnswer[]) => {
-      const answered = finalAnswers.filter((a) => a.selectedIndex >= 0);
+      // Submit every served question — including skipped/timed-out ones
+      // (selectedIndex -1). The ERP scores against the server-issued session
+      // (the exact set it served), so the denominator is fixed server-side and
+      // skipping can never inflate the score.
+      if (!sessionToken) {
+        setSubmitFailed(true);
+        setPhase('result');
+        return;
+      }
       const { partnerCode: code, source } = getTrackingContext();
       try {
         const res = await submitQuiz({
-          campusSlug,
-          sessionToken: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
-          category,
-          answers: answered,
+          sessionToken,
+          answers: finalAnswers,
           displayName: displayName.trim() || undefined,
           city: city.trim() || undefined,
           partnerCode: code,
@@ -83,7 +91,7 @@ export default function QuizPage() {
         setPhase('result');
       }
     },
-    [campusSlug, category, displayName, city],
+    [sessionToken, category, displayName, city],
   );
 
   const nextQuestion = useCallback(() => {
@@ -127,11 +135,12 @@ export default function QuizPage() {
     track('quiz_started', { category: cat });
     try {
       const data = await getQuizQuestions(campusSlug, cat, locale as 'fr' | 'en', 10);
-      if (!data.questions.length) {
+      if (!data.questions.length || !data.sessionToken) {
         setError(t('no_questions'));
         return;
       }
       setQuestions(data.questions);
+      setSessionToken(data.sessionToken);
       setCurrent(0);
       setAnswers([]);
       setSelected(null);
@@ -156,6 +165,7 @@ export default function QuizPage() {
   const restart = () => {
     setPhase('pick');
     setQuestions([]);
+    setSessionToken(null);
     setResult(null);
     setSubmitFailed(false);
     setAnswers([]);

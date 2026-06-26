@@ -43,6 +43,7 @@ export default async function ClassementPage({ params, searchParams }: Classemen
 
   const labels = {
     participant: t('col_participant'),
+    anonymous: t('anonymous'),
     score: t('col_score'),
     category: t('col_category'),
     empty: t('empty'),
