@@ -9,6 +9,7 @@ import { CheckCircle, AlertCircle } from 'lucide-react';
 import { captureTrackingParams, getTrackingContext } from '@/lib/tracking';
 import { track } from '@/lib/analytics';
 import { postPreRegister } from '@/lib/erp-client';
+import { isIntakeClosed } from '@/lib/feature-refusal';
 import WhatsAppButton from '@/components/shared/WhatsAppButton';
 import type { TrackingContext } from '@/lib/tracking';
 
@@ -87,7 +88,9 @@ export default function PreRegisterForm({ programs, campusSlug, partnerCodeProp,
     } catch (err: unknown) {
       setStatus('error');
       const httpStatus = (err as { status?: number }).status;
-      setErrorMsg(httpStatus === 409 ? t('error_duplicate') : t('error_generic'));
+      if (isIntakeClosed(err))      setErrorMsg(t('error_intake_closed'));
+      else if (httpStatus === 409)  setErrorMsg(t('error_duplicate'));
+      else                          setErrorMsg(t('error_generic'));
     }
   };
 

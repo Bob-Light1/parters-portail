@@ -26,6 +26,7 @@ import type {
   CoursePreview,
   ApiSuccess,
 } from '@/types';
+import { refusalCode } from './feature-refusal';
 
 const ERP_BASE_URL = process.env.ERP_API_URL ?? '';
 const PORTAL_KEY   = process.env.PORTAL_API_KEY ?? '';
@@ -45,8 +46,11 @@ async function erpFetch<T>(path: string, options: RequestInit = {}): Promise<T> 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
     const message = (body as { message?: string }).message ?? res.statusText;
-    const err = new Error(message);
-    (err as Error & { status: number }).status = res.status;
+    const err = new Error(message) as Error & { status: number; code: string | null };
+    err.status = res.status;
+    // Entitlement refusals are a 403 like any other; only the code tells the
+    // caller the campus closed its intake rather than the visitor being denied.
+    err.code = refusalCode(body);
     throw err;
   }
 
@@ -68,8 +72,11 @@ async function portalFetch<T>(path: string, options: RequestInit = {}): Promise<
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
     const message = (body as { message?: string }).message ?? res.statusText;
-    const err = new Error(message);
-    (err as Error & { status: number }).status = res.status;
+    const err = new Error(message) as Error & { status: number; code: string | null };
+    err.status = res.status;
+    // Entitlement refusals are a 403 like any other; only the code tells the
+    // caller the campus closed its intake rather than the visitor being denied.
+    err.code = refusalCode(body);
     throw err;
   }
 

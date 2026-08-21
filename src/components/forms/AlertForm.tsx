@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { CheckCircle, AlertCircle } from 'lucide-react';
+import { isIntakeClosed } from '@/lib/feature-refusal';
 
 interface AlertFormProps {
   campusSlug?: string;
@@ -21,6 +22,7 @@ const inputClass =
 export default function AlertForm({ campusSlug, programs }: AlertFormProps) {
   const t = useTranslations('alert');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const schema = useMemo(
     () =>
@@ -64,8 +66,16 @@ export default function AlertForm({ campusSlug, programs }: AlertFormProps) {
         }),
       });
       const json = await res.json();
-      setStatus(json.success ? 'success' : 'error');
+      if (json.success) {
+        setStatus('success');
+        return;
+      }
+      // A campus can keep its site online and close its intake (`read_only`):
+      // that is not a failure the visitor can retry away.
+      setErrorMsg(isIntakeClosed(json) ? t('error_intake_closed') : t('error_generic'));
+      setStatus('error');
     } catch {
+      setErrorMsg(t('error_generic'));
       setStatus('error');
     }
   };
@@ -116,7 +126,7 @@ export default function AlertForm({ campusSlug, programs }: AlertFormProps) {
       {status === 'error' && (
         <div className="flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-700">
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
-          {t('error_generic')}
+          {errorMsg}
         </div>
       )}
 

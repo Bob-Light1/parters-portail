@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
 import { getQuizQuestions, submitQuiz } from '@/lib/erp-client';
+import { isIntakeClosed } from '@/lib/feature-refusal';
 import { captureTrackingParams, getTrackingContext } from '@/lib/tracking';
 import { withReferralCode } from '@/lib/whatsapp';
 import { track } from '@/lib/analytics';
@@ -43,7 +44,10 @@ export default function QuizPage() {
   const [timeLeft, setTimeLeft] = useState(TIMER_SECONDS);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<QuizResult | null>(null);
-  const [submitFailed, setSubmitFailed] = useState(false);
+  // Which submission failure to show, if any. A campus can keep its quiz
+  // playable and close its intake (`read_only`), which is not a retryable error.
+  const [submitFailure, setSubmitFailure] =
+    useState<null | 'submit_error' | 'submit_error_intake_closed'>(null);
   const [error, setError] = useState('');
   const [partnerCode, setPartnerCode] = useState<string | undefined>(undefined);
   // Optional identity collected before submission so the player can appear on the
@@ -67,7 +71,7 @@ export default function QuizPage() {
       // (the exact set it served), so the denominator is fixed server-side and
       // skipping can never inflate the score.
       if (!sessionToken) {
-        setSubmitFailed(true);
+        setSubmitFailure('submit_error');
         setPhase('result');
         return;
       }
@@ -82,11 +86,11 @@ export default function QuizPage() {
           source,
         });
         setResult(res);
-        setSubmitFailed(false);
+        setSubmitFailure(null);
         track('quiz_completed', { category, score: res.score });
-      } catch {
+      } catch (err: unknown) {
         // The score is computed only by the ERP, so we never fabricate one here.
-        setSubmitFailed(true);
+        setSubmitFailure(isIntakeClosed(err) ? 'submit_error_intake_closed' : 'submit_error');
       } finally {
         setPhase('result');
       }
@@ -145,7 +149,7 @@ export default function QuizPage() {
       setAnswers([]);
       setSelected(null);
       setTimeLeft(TIMER_SECONDS);
-      setSubmitFailed(false);
+      setSubmitFailure(null);
       setResult(null);
       setPhase('playing');
     } catch {
@@ -167,7 +171,7 @@ export default function QuizPage() {
     setQuestions([]);
     setSessionToken(null);
     setResult(null);
-    setSubmitFailed(false);
+    setSubmitFailure(null);
     setAnswers([]);
     setPendingAnswers([]);
     setCurrent(0);
@@ -303,11 +307,11 @@ export default function QuizPage() {
 
   // ── Result phase ──────────────────────────────────────────────────────────────
 
-  if (submitFailed) {
+  if (submitFailure) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-16 text-center">
         <AlertCircle className="w-16 h-16 mx-auto mb-4 text-red-400" />
-        <p className="text-gray-600 mb-8">{t('submit_error')}</p>
+        <p className="text-gray-600 mb-8">{t(submitFailure)}</p>
         <button
           onClick={restart}
           className="inline-flex items-center gap-2 border-2 border-[#0f2d5e] text-[#0f2d5e] font-semibold px-6 py-3 rounded-full hover:bg-[#0f2d5e]/5 transition-colors"
