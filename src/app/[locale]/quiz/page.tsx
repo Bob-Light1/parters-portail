@@ -1,5 +1,8 @@
 'use client';
 
+import { BRAND_NAME as BRAND } from '@/lib/brand';
+
+
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
@@ -17,7 +20,7 @@ import Link from 'next/link';
 
 const TIMER_SECONDS = 30;
 const DEFAULT_CAMPUS = process.env.NEXT_PUBLIC_DEFAULT_CAMPUS_SLUG ?? '';
-const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'AcadERP';
+
 
 const CATEGORIES = ['web', 'accounting', 'marketing', 'general'] as const;
 

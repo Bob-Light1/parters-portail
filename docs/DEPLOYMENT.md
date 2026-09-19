@@ -40,7 +40,7 @@ stateless model.
 
 1. **A Vercel account** with access to the org/team that will own the project.
 2. **The ERP backend already deployed and reachable over HTTPS.**
-   Current production ERP: `https://foruni-backend.onrender.com`.
+   Historically documented ERP endpoint (verify availability before use): `https://foruni-backend.onrender.com`.
    Its public endpoints (`/api/public/*`) must be live behind
    `publicPortalMiddleware`.
 3. **A shared portal key** (`PORTAL_API_KEY`), identical on the ERP and the
@@ -72,7 +72,9 @@ shipped to the client bundle.
 | `DEFAULT_CAMPUS_SLUG` | server | ✅ | Fallback campus when no `?ref=` / `?slug=` is given |
 | `NEXT_PUBLIC_DEFAULT_CAMPUS_SLUG` | browser | ✅ | Same fallback, needed client-side for the quiz in direct mode |
 | `NEXT_PUBLIC_PORTAL_URL` | browser | ✅ | The portal's own public URL. Used in WhatsApp share links **and the badge QR** — must equal the deployed domain |
-| `NEXT_PUBLIC_BRAND_NAME` | browser | ✅ | Establishment name shown in navbar/footer/badge/titles |
+| `NEXT_PUBLIC_PRODUCT_BRAND_NAME` | browser | optional | Product fallback, default Wewigo |
+| `NEXT_PUBLIC_BRAND_NAME` | browser | optional | Establishment override; takes priority over the product fallback |
+| `NEXT_PUBLIC_BRAND_LOGO_URL` / `NEXT_PUBLIC_BRAND_ICON_URL` | browser | optional | Product assets, used without an explicit establishment override |
 | `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` | browser | optional | Enables Plausible analytics when set (e.g. `portail.votreecole.com`) |
 | `NEXT_PUBLIC_PLAUSIBLE_SRC` | browser | optional | Plausible script URL (only if self-hosting Plausible) |
 
@@ -111,7 +113,7 @@ npm run lint      # must be clean
 npm run build     # must pass — all 8 locales prerendered
 ```
 
-If it fails on a missing i18n key, add that key to **every** `messages/*.json`.
+If it fails on a missing i18n key, add that key to **every** `src/messages/*.json`.
 
 ---
 
@@ -125,9 +127,9 @@ The portal is useless if the ERP rejects its calls. On the **ERP backend**:
 3. Confirm the ERP **trusts the proxy IP headers** — the portal forwards the
    real visitor IP as `X-Forwarded-For` / `X-Real-IP` (populated by Vercel's
    edge) so per-IP rate limiting and IP_BURST fraud detection work
-   (see [`erp-proxy.ts`](../src/lib/erp-proxy.ts)). In Express this means
-   `app.set('trust proxy', true)` so `req.ip` reflects the visitor, not the
-   Vercel host.
+   (see [`erp-proxy.ts`](../src/lib/erp-proxy.ts)). The current backend uses `app.set('trust proxy', 1)` in `app.js`.
+   Validate the actual proxy chain and visitor IP on the target deployment;
+   do not replace this with unrestricted proxy trust.
 4. If the ERP enforces a CORS/origin allow-list on public routes, add the
    portal's production origin (`https://portail.votreecole.com`).
 
@@ -138,7 +140,7 @@ curl -s https://foruni-backend.onrender.com/api/public/campuses \
   -H "X-Portal-Key: <PORTAL_API_KEY>" | head
 ```
 
-A JSON envelope `{ success: true, data: [...] }` confirms the key and route.
+A JSON envelope `{ success: true, data: { campuses: [...] } }` confirms the key and route.
 
 ---
 
@@ -220,7 +222,7 @@ Run through this against the **live custom domain** before announcing the URL:
 - [ ] **Leaderboard** (`/classement`) shows data.
 - [ ] **Referral loop:** open with `?ref=TESTCODE` → WhatsApp share link and the
       badge QR both carry `?ref=TESTCODE` (attribution cookie set for 30 days).
-- [ ] **IP forwarding works:** two rapid submissions from the same IP trip the
+- [ ] **IP forwarding works:** use the documented endpoint-specific thresholds on a test deployment to verify the
       ERP's per-IP limit (confirms `X-Forwarded-For` reaches the ERP, not the
       Vercel host).
 - [ ] **Secret is server-only:** `PORTAL_API_KEY` never appears in the page
@@ -253,10 +255,10 @@ Run through this against the **live custom domain** before announcing the URL:
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Build fails on a missing translation key | i18n keys not aligned across the 8 `messages/*.json` | Add the key to **every** locale file, rebuild |
+| Build fails on a missing translation key | i18n keys not aligned across the 8 `src/messages/*.json` | Add the key to **every** locale file, rebuild |
 | Everything returns "Portal is not configured." (500) | `ERP_API_URL` or `PORTAL_API_KEY` unset for the Production environment | Set both server-side vars in Vercel and redeploy |
 | Quiz/pre-register 401/403 from ERP | Portal key ≠ ERP key, or public route not mounted | Align `PORTAL_API_KEY`; verify `/api/public/*` + `publicPortalMiddleware` |
-| Every lead flagged as same IP / IP_BURST | ERP not trusting proxy headers | `app.set('trust proxy', true)` on the ERP (Vercel already sends the real IP) |
+| Every lead flagged as same IP / IP_BURST | ERP not trusting proxy headers | Verify the deployment proxy chain against the backend's current `trust proxy: 1` setting |
 | Share links / QR point to `*.vercel.app` or wrong host | `NEXT_PUBLIC_PORTAL_URL` not set to the custom domain, or changed without redeploy | Set it to the exact production URL and **redeploy** |
 | Env var edited but nothing changed | `NEXT_PUBLIC_*` is baked at build time | Trigger a new deployment |
 | Direct visit shows the wrong/blank campus | `DEFAULT_CAMPUS_SLUG` / `NEXT_PUBLIC_DEFAULT_CAMPUS_SLUG` unset or wrong | Set both to a valid active campus slug |

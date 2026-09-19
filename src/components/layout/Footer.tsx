@@ -1,8 +1,9 @@
+import { BRAND_NAME as BRAND } from '@/lib/brand';
 import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 
 /** Establishment brand shown in the navbar and footer. */
-const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'AcadERP';
+
 
 export default function Footer() {
   const t = useTranslations('footer');

@@ -1,13 +1,16 @@
 'use client';
 
+import Brand from '@/components/shared/Brand';
+
+
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Menu, X, GraduationCap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import LanguageSwitcher from './LanguageSwitcher';
 
 /** Establishment brand shown in the navbar and footer. */
-const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'AcadERP';
+
 
 export default function Navbar() {
   const t = useTranslations('nav');
@@ -29,8 +32,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center gap-2 font-bold text-lg">
-          <GraduationCap className="w-6 h-6" />
-          <span>{BRAND}</span>
+          <Brand />
         </Link>
 
         {/* Desktop links */}

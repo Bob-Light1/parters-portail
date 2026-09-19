@@ -13,7 +13,7 @@
 ## 1. Response envelope (cross-cutting contract)
 
 Every `/api/public/*` route responds with the **same envelope**, produced by
-`utils/response-helpers.js` on the ERP side. No public controller emits a raw `res.json`.
+`shared/utils/response-helpers.js` on the ERP side. No public controller emits a raw `res.json`.
 
 ### Success
 
@@ -50,7 +50,7 @@ Every `/api/public/*` route responds with the **same envelope**, produced by
 | Rate limit exceeded | `429` | `rate-limiter` (`+ retryAfter`) |
 | Server error | `500` | global handler |
 
-**Typed exceptions**: the global Express error handler (`server.js`) maps known errors
+**Typed exceptions**: the global Express error handler (`app.js`) maps known errors
 (`ValidationError`→400, `JsonWebTokenError`/`TokenExpiredError`→401, code `11000`→409,
 `LIMIT_FILE_SIZE`→400) onto the envelope above; `stack` is only included when
 `NODE_ENV=development`. On the portal side, `erp-client` throws an `Error` whose
@@ -181,10 +181,12 @@ Depending on the path (honeypot/dedup), it may return `200` with no `data` (sile
 Random draw (`$sample`) **without** the `correctIndex` field. `data`:
 
 ```jsonc
-{ "campusSlug": "…", "category": "… | null", "lang": "fr", "questions": [ /* … */ ] }
+{ "campusSlug": "…", "category": "… | null", "lang": "fr",
+  "questions": [ /* … */ ], "sessionToken": "… | null" }
 ```
 
-Proxied via `/api/quiz`.
+Proxied via `/api/quiz`. Echo the server-issued `sessionToken` on submission;
+it binds the attempt to the served question set. It is null when no questions are available.
 
 ---
 
@@ -376,4 +378,5 @@ Proxied via `/api/alert`.
 |---|---|
 | FAQ | `86400` (24 h, spec §4.11) |
 | other Phase 2 reads (testimonials, competition, course-previews, campus by slug) | `300` (5 min) |
-| quiz / pre-register / leaderboard | not cached (dynamic) |
+| leaderboard | `60` (1 minute) |
+| quiz / pre-register | not cached (dynamic) |

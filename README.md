@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Public pre-registration portal
 
-## Getting Started
+Standalone Next.js 15 App Router / TypeScript portal for the multi-campus academic ERP.
+It handles applicant intake, referral attribution, quizzes and placement tests,
+campus selection, public course content, contact and session alerts.
+The software showcase and signed-in workspaces live in the separate ERP frontend.
 
-First, run the development server:
+## Start here
+
+Read [AGENTS.md](AGENTS.md), [project context](docs/context.md) and the
+[current handoff](docs/current_task.md) for session setup.
+[CLAUDE.md](CLAUDE.md) contains engineering conventions;
+[the API contract](docs/api-contract.md) describes backend integration;
+[the deployment guide](docs/DEPLOYMENT.md) covers Vercel configuration and checks.
+
+## Local development
 
 ```bash
+npm ci
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Configure the local environment before using the app at `http://localhost:3000`.
+`ERP_API_URL` points to the backend origin, without `/api` or a trailing slash;
+`PORTAL_API_KEY` must match the backend and stays server-only.
+Use the campus fallback variables and `NEXT_PUBLIC_PORTAL_URL` as documented in
+[the environment sample](.env.example). Never commit real secrets.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [Localized pages](src/app/[locale]/) and server components read the ERP through
+  [erp-client.ts](src/lib/erp-client.ts).
+- Browser submissions use [local API handlers](src/app/api/) and
+  [erp-proxy.ts](src/lib/erp-proxy.ts), keeping `X-Portal-Key` out of the browser.
+- All business persistence and authoritative quiz scoring belong to the backend.
+- [Locale configuration](src/i18n/config.ts) defines eight locales; translations
+  live in [src/messages](src/messages/). Preserve Arabic RTL and bilingual ERP content.
+- [Brand configuration](src/lib/brand.ts) provides the Wewigo product fallback,
+  optional establishment override and public assets. Preserve campus identity.
+  Public environment changes require rebuilding.
 
-## Learn More
+## Checks and deployment
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+There is no `npm test` script. The build and lint checks do not establish that the
+live ERP integration works; follow the deployment guide's smoke checks as well.
+The application requires a Next.js server runtime, including its API proxies;
+it is not a static export. No deployment status is asserted by this README.

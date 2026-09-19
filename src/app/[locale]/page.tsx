@@ -1,3 +1,4 @@
+import { BRAND_NAME } from '@/lib/brand';
 import { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -26,7 +27,7 @@ export async function generateMetadata({
   const { ref, slug } = await searchParams;
   const t = await getTranslations({ locale, namespace: 'home' });
 
-  let campusName = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'AcadERP';
+  let campusName = BRAND_NAME;
   try {
     const campus = await resolveCampus(ref, slug);
     campusName = campus.campusName;

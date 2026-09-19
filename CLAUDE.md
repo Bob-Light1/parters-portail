@@ -1,4 +1,4 @@
-# CLAUDE.md — Portail de Pré-inscription
+# CLAUDE.md — Pre-registration Portal
 
 Public-facing pre-registration portal for an academic ERP. It is the landing
 destination for commercial partners' referral links / QR codes: it captures leads,
@@ -19,12 +19,12 @@ Browser ──> Portail (Next.js, Vercel) ──X-Portal-Key──> ERP (Node/Ex
 ```
 
 - **ERP backend repo:** `/home/adminsecu/Projects/university/backend` (Node/Express/Mongoose).
-  Public endpoints live in `controllers/public/` + `routers/public.router.js`
+  Public endpoints live in `modules/public-portal/controllers/public/` + `modules/public-portal/public.routes.js`
   (`/api/public/*`, behind `publicPortalMiddleware`). Admin CRUD for portal content is in
-  `controllers/portal-admin/` + `routers/portal-admin.router.js` (`/api/portal-admin/*`, JWT).
+  `modules/public-portal/controllers/portal-admin/` + `modules/public-portal/portal-admin.routes.js` (`/api/portal-admin/*`, JWT).
 - **ERP admin UI repo:** `/home/adminsecu/Projects/university/frontend` (Vite/MUI). Phase 2
   content (testimonials, FAQ, competition, course previews) is managed under `/admin/portal/*`.
-- **ERP in prod:** https://foruni-backend.onrender.com
+- **Historically documented ERP deployment (verify before use):** https://foruni-backend.onrender.com
 
 ## Stack
 
@@ -51,7 +51,7 @@ PWA: `app/manifest.ts` + `public/sw.js` (registered by `shared/ServiceWorkerRegi
   `feature-refusal.ts` (`isIntakeClosed`).
 - `components/` — `forms/`, `layout/` (Navbar, Footer, LanguageSwitcher), `leaderboard/`,
   `faq/`, `competition/`, `badge/`, `shared/`.
-- `i18n/config.ts` — **single source of truth** for locales. `messages/*.json` — 8 locales.
+- `i18n/config.ts` — **single source of truth** for locales. `src/messages/*.json` — 8 locales.
 - `types/index.ts` — shared API types.
 
 ## Key conventions
@@ -76,7 +76,7 @@ PWA: `app/manifest.ts` + `public/sw.js` (registered by `shared/ServiceWorkerRegi
 - **Attribution (viral loop):** `tracking.ts` persists `partnerCode` + source + UTM in
   cookies (30 days, `pref`/`psrc`/`putm`). Always propagate `?ref=CODE` into shared
   WhatsApp links and the quiz badge QR via `withReferralCode()`.
-- **i18n:** add new keys to **all 8** `messages/*.json` (fr, en, de, it, la, el, ar, zh) —
+- **i18n:** add new keys to **all 8** `src/messages/*.json` (fr, en, de, it, la, el, ar, zh) —
   keys must stay aligned (build prerenders all locales). `ar` is RTL (handled in the
   locale layout). ERP-provided dynamic content is bilingual `{fr,en}`; render via
   `pickLang(content, locale)` (falls back to `fr`).
@@ -84,7 +84,7 @@ PWA: `app/manifest.ts` + `public/sw.js` (registered by `shared/ServiceWorkerRegi
   server-side read `300`.
 - **English everywhere.** All file contents (code comments, docs, config comments, READMEs)
   must be written in English. Match surrounding style. The **only** exception is i18n data:
-  `messages/*.json` are translations (`fr.json` stays French, etc.) and ERP `{fr,en}` content,
+  `src/messages/*.json` are translations (`fr.json` stays French, etc.) and ERP `{fr,en}` content,
   plus language autonyms like `fr: 'Français'` in `i18n/config.ts`.
 
 ## Commands
@@ -112,3 +112,13 @@ become-a-partner, contact, PWA) are implemented and committed on both portal and
 plus the ERP React admin screens. Remaining from the spec: winner email/SMS
 notifications, dynamic multilingual ERP content, and the Phase 4 referral analytics
 that consume the `/r/[code]` hit beacon.
+
+## Deployment branding
+
+`src/lib/brand.ts` resolves the product identity and the existing establishment override.
+`NEXT_PUBLIC_PRODUCT_BRAND_NAME` defaults to Wewigo. Existing `NEXT_PUBLIC_BRAND_NAME`
+remains authoritative for the establishment; campus names/logos from the ERP are preserved.
+Optional `NEXT_PUBLIC_BRAND_LOGO_URL` / `NEXT_PUBLIC_BRAND_ICON_URL` override public assets.
+Product assets are used only without an explicit establishment override. Rebuild after
+changing public environment values. Product discovery belongs to the ERP home; this
+portal continues to own applicant intake and referral attribution.

@@ -1,7 +1,8 @@
+import { BRAND_NAME as BRAND, BRAND_ICON } from '@/lib/brand';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
-const BRAND = process.env.NEXT_PUBLIC_BRAND_NAME ?? 'AcadERP';
+
 const PORTAL_URL = process.env.NEXT_PUBLIC_PORTAL_URL || 'http://localhost:3000';
 const DESCRIPTION = 'Join the next generation of professionals.';
 
@@ -19,21 +20,21 @@ export const metadata: Metadata = {
   applicationName: BRAND,
   appleWebApp: { capable: true, title: BRAND, statusBarStyle: 'default' },
   icons: {
-    icon: '/icon-192.png',
-    apple: '/apple-touch-icon.png',
+    icon: BRAND_ICON || '/icon-192.png',
+    apple: BRAND_ICON || '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
     siteName: BRAND,
     title: BRAND,
     description: DESCRIPTION,
-    images: [{ url: '/icon-512.png', width: 512, height: 512, alt: BRAND }],
+    images: [{ url: BRAND_ICON || '/icon-512.png', width: 512, height: 512, alt: BRAND }],
   },
   twitter: {
     card: 'summary',
     title: BRAND,
     description: DESCRIPTION,
-    images: ['/icon-512.png'],
+    images: [BRAND_ICON || '/icon-512.png'],
   },
   // Generic (non-Apple) install hint. Apple's is emitted via `appleWebApp`.
   other: { 'mobile-web-app-capable': 'yes' },
